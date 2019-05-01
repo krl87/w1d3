@@ -22,7 +22,7 @@ var library = {
                     }
              },
 
-
+// prints a list of all playlists, in the form:
   printPlaylists: function () {
    for (var playlist in this.playlists) {
     var playlistId = this.playlists[playlist].id;
@@ -33,35 +33,31 @@ var library = {
   },
 
 // prints a list of all tracks, in the form:
-// t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
-// t02: Model View Controller by James Dempsey (WWDC 2003)
-// t03: Four Thirty-Three by John Cage (Woodstock 1952)
-
-printTracks: function () {
- for (var track in this.tracks) {
-  var trackId = this.tracks[track].id;
-  var trackName = this.tracks[track].name;
-  var trackArtist = this.tracks[track].artist;
-  var trackAlbum = this.tracks[track].album;
-  console.log(trackId+ ":",trackName,"by",trackArtist,"("+trackAlbum+ ")");
-  }
-},
+  printTracks: function () {
+   for (var track in this.tracks) {
+    var trackId = this.tracks[track].id;
+    var trackName = this.tracks[track].name;
+    var trackArtist = this.tracks[track].artist;
+    var trackAlbum = this.tracks[track].album;
+    console.log(trackId+ ":",trackName,"by",trackArtist,"("+trackAlbum+ ")");
+    }
+  },
 
 // prints a list of tracks for a given playlist, in the form:
   printPlaylist: function (playlistId) {
-      var pId = this.playlists[playlistId].id;
-      var playlistName = this.playlists[playlistId].name;
-      var playlistTracks = this.playlists[playlistId].tracks.length;
-      console.log(playlistId+":",playlistName,"-",playlistTracks,"tracks");
+    var pId = this.playlists[playlistId].id;
+    var playlistName = this.playlists[playlistId].name;
+    var playlistTracks = this.playlists[playlistId].tracks.length;
+    console.log(playlistId+":",playlistName,"-",playlistTracks,"tracks");
 
-      var array = this.playlists[playlistId].tracks;
+    var array = this.playlists[playlistId].tracks;
 
-    for (i = 0; i < array.length; i++) {
-      var trackId = this.tracks[array[i]].id;
-      var trackName = this.tracks[array[i]].name;
-      var trackArtist = this.tracks[array[i]].artist;
-      var trackAlbum = this.tracks[array[i]].album;
-      console.log(trackId+ ":",trackName,"by",trackArtist,"("+trackAlbum+ ")");
+  for (i = 0; i < array.length; i++) {
+    var trackId = this.tracks[array[i]].id;
+    var trackName = this.tracks[array[i]].name;
+    var trackArtist = this.tracks[array[i]].artist;
+    var trackAlbum = this.tracks[array[i]].album;
+    console.log(trackId+ ":",trackName,"by",trackArtist,"("+trackAlbum+ ")");
     }
   },
   // adds an existing track to an existing playlist
@@ -113,8 +109,7 @@ function findPlaylistCount() {
 }
 
 // generates a unique id
-  // (use this for addTrack and addPlaylist)
-
+// (use this for addTrack and addPlaylist)
 var uid = function() {
  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
